@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+}
+
+.letter{
+    margin-left: 45%;
+}
+
+.box1 {
+    background-color: brown;
+    width: 25%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    
+    margin-left: 35%;   
+}
+
+.frame1{
+    background-color: darkblue;
+    width: 33.3%;
+    height: 33.3%;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+.frame2{
+    background-color: red;
+    width: 33.3%;
+    height: 33.3%;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+.frame3{
+    background-color: gold;
+    width: 33.4%;
+    height: 33.5%;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+.frame4{
+    background-color:burlywood;
+    width: 33.3%;
+    height: 33.3%;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+.frame5{
+    background-color: rgb(204, 133, 26);
+    width: 33.3%;
+    height: 33.3%;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+.frame6{
+    background-color: rgb(170, 42, 230);
+    width: 33.4%;
+    height: 33.3%;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+.frame7{
+    background-color: rgb(12, 236, 12);
+    width: 33.3%;
+    height: 33.3%;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+.frame8{
+    background-color: rgb(241, 106, 15);
+    width: 33.3%;
+    height: 33.3%;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+.frame9{
+    background-color: rgb(215, 222, 235);
+    width: 33.4%;
+    height: 33.3%;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.button1{
+    width: 100px;
+    height: 50px;
+
+    margin-top: 10%;
+    margin-left: 37%;
+}
