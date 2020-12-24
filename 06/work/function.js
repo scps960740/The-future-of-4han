@@ -130,7 +130,7 @@
 
 
 let ooxx = [
-    ["*", "*", "*"],
+    ["*", "*", "*"], 
     ["*", "*", "*"],
     ["*", "*", "*"],
 ];
@@ -138,12 +138,21 @@ let ooxx = [
 
 //架設9*9框架
 
+// res = ""
+// 1. level = ""
+
+// res = level + "\n" + level + "\n" + level
+
+
 function print() {
     let res = ''
     for (i = 0; i < ooxx.length; i++) {
-        let level = ''
+        let level = '' 
+        // "*" k = 0
+        // "**" k = 1
+        // "***"
         for (k = 0; k < ooxx[i].length; k++) {
-            level = level + " " + ooxx[i][k]
+            level = level + " " + ooxx[i][k]  
         }
         res = res + level + "\n"
     }
@@ -257,3 +266,5 @@ while (rr === true) {
 //-------作業------
 //1.做一個OOXX的網頁
 //2.使OOXX做出判斷勝負
+
+
