@@ -1,0 +1,250 @@
+body {
+    margin: 0%;
+
+}
+
+.box1 {
+    background-color: rgb(204, 88, 5);
+    width: 30%;
+    height: 240px;
+    margin-left: 30%;
+    margin-right: 20%;
+    margin-top: 10px;
+
+    display: flex;
+}
+
+.g {
+    position: absolute;
+    margin-left: 13%;
+    margin-top: 150px;
+}
+
+.box2 {
+    background-color: #d4a77a;
+    width: 30%;
+    height: 480px;
+    margin-left: 30%;
+    margin-right: 20%;
+
+    display: flex;
+}
+
+.box3 {
+    background-color: rgb(216, 42, 11);
+    width: 30%;
+    height: 200px;
+    margin-left: 30%;
+    margin-right: 20%;
+
+    display: flex;
+}
+
+.hexagon {
+    width: 100px;
+    height: 55px;
+    background: rgb(255, 255, 255);
+    position: absolute;
+
+
+    margin-top: 100px;
+    margin-left: 7%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hh {
+    background-color: burlywood;
+}
+
+.hexagon:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid rgb(255, 255, 255);
+
+
+}
+
+.hexagon:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid rgb(255, 255, 255);
+}
+
+.hexagon2 {
+    width: 100px;
+    height: 55px;
+    background: rgb(40, 192, 192);
+    position: relative;
+
+    margin-top: 200px;
+    margin-left: 33%;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hexagon2:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid rgb(40, 192, 192);
+
+
+}
+
+.hexagon2:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid rgb(40, 192, 192);
+}
+
+.hexagon3 {
+    width: 100px;
+    height: 55px;
+    background: red;
+    position: absolute;
+
+    margin-top: 100px;
+    margin-left: 13%;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hexagon3:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid red;
+
+
+}
+
+.hexagon3:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid red;
+}
+
+.hexagon4 {
+    width: 100px;
+    height: 55px;
+    background: green;
+    position: absolute;
+
+    margin-top: 200px;
+    margin-left: 16%;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hexagon4:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid green;
+
+
+}
+
+.hexagon4:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid green;
+}
+
+.hexagon5 {
+    width: 100px;
+    height: 55px;
+    background: rgb(179, 166, 166);
+    position: absolute;
+
+    margin-top: 100px;
+    margin-left: 19%;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hexagon5:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid rgb(179, 166, 166);
+
+
+}
+
+.hexagon5:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid rgb(179, 166, 166);
+}

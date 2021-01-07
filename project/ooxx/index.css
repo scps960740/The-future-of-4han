@@ -2,7 +2,10 @@
 
 body {
     margin: 0;
-    background-color: black;
+    background-image: url(https://p1.pstatp.com/origin/pgc-image/423458339d1b416a8409344b757f16da);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .box1 {
@@ -10,18 +13,18 @@ body {
     color: cornsilk;
     width: 33%;
     height: 600px;
-    margin-left: 32%;
-    margin-top: 100px;
+    margin-left: 33%;
+    margin-top: 150px;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
 }
 
 .project1 {
-    background-color: black;
+    background-color: rgb(20, 19, 19);
     width: 33.3%;
     height: 200px;
-    color: black;
+    color:  rgb(20, 19, 19);
     border-bottom: solid;
     border-right: solid;
     border-color: rgba(253, 249, 249, 0.822);
@@ -30,10 +33,10 @@ body {
 }
 
 .project2 {
-    background-color: black;
+    background-color: rgb(20, 19, 19);
     width: 33.3%;
     height: 200px;
-    color: black;
+    color:  rgb(20, 19, 19);
     border-bottom: solid;
     border-right: solid;
     border-color: rgb(253, 249, 249, 0.822);
@@ -53,10 +56,10 @@ body {
 }
 
 .project3 {
-    background-color: black;
+    background-color:  rgb(20, 19, 19);
     width: 33.4%;
     height: 200px;
-    color: black;
+    color:  rgb(20, 19, 19);
     border-bottom: solid;
     border-color: rgb(253, 249, 249, 0.822);
     border-width: 5px;
@@ -64,10 +67,10 @@ body {
 }
 
 .project4 {
-    background-color: black;
+    background-color:  rgb(20, 19, 19);
     width: 33.3%;
     height: 200px;
-    color: black;
+    color:  rgb(20, 19, 19);
     border-bottom: solid;
     border-right: solid;
     border-color: rgb(253, 249, 249, 0.822);
@@ -96,10 +99,10 @@ body {
 }
 
 .project5 {
-    background-color: black;
+    background-color:  rgb(20, 19, 19);
     width: 33.3%;
     height: 200px;
-    color: black;
+    color:  rgb(20, 19, 19);
     border-bottom: solid;
     border-right: solid;
     border-color: rgb(253, 249, 249, 0.822);
@@ -108,10 +111,10 @@ body {
 }
 
 .project6 {
-    background-color: black;
+    background-color:  rgb(20, 19, 19);
     width: 33.4%;
     height: 200px;
-    color: black;
+    color:  rgb(20, 19, 19);
     border-bottom: solid;
     border-color: rgb(253, 249, 249, 0.822);
     border-width: 5px;
@@ -119,10 +122,10 @@ body {
 }
 
 .project7 {
-    background-color: black;
+    background-color:  rgb(20, 19, 19);
     width: 33.3%;
     height: 200px;
-    color: black;
+    color:  rgb(20, 19, 19);
     border-right: solid;
     border-color: rgb(253, 249, 249, 0.822);
     border-width: 5px;
@@ -130,10 +133,10 @@ body {
 }
 
 .project8 {
-    background-color: black;
+    background-color:  rgb(20, 19, 19);
     width: 33.3%;
     height: 200px;
-    color: black;
+    color:  rgb(20, 19, 19);
     border-right: solid;
     border-color: rgb(253, 249, 249, 0.822);
     border-width: 5px;
@@ -141,10 +144,10 @@ body {
 }
 
 .project9 {
-    background-color: black;
+    background-color:  rgb(20, 19, 19);
     width: 33.4%;
     height: 200px;
-    color: black;
+    color:  rgb(20, 19, 19);
     border-color: rgb(253, 249, 249, 0.822);
     border-width: 5px;
     box-sizing: border-box;
@@ -185,16 +188,4 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 15px;
-}
-.box4{
-    position: relative;
-    height: 100px;
-    width: 100px;
-    margin-right: 2%;
-    margin-left: auto;
-    box-sizing: border-box;
-}
-a>img{
-    width: 100%;
-    height: 100%;
 }
