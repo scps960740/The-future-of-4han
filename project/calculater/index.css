@@ -3,12 +3,15 @@
 
 body{
     margin: 0 ;
-    background-image: url(https://s2.best-wallpaper.net/wallpaper/1920x1080/1809/Earth-planet-spaceship-universe_1920x1080.jpg);
+    background-image: url("../images/calcBg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 100%;
     color:white;
+    height: 100vh;
+    box-sizing: border-box;
+    padding-top: 5%;
 }
 .box{
     width: 25%;
@@ -16,10 +19,7 @@ body{
     background-color: rgba(87, 84, 82, 0.692);
     border-radius: 30px;
     margin-left: 65%;
-    margin-top: 5%;
     box-shadow: 10px 10px 5px rgba(23, 24, 24, 0.808);
-    
-
 }
 .total1{
     width: 100%;
