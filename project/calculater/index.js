@@ -1,3 +1,6 @@
+const detail = document.getElementById("detail")
+const result = document.getElementById("result")
+
 const buttom1 = document.getElementById("buttom1")
 buttom1.addEventListener("click", function () {
     result.innerText = "1"
@@ -70,8 +73,6 @@ const buttom18 = document.getElementById("buttom18")
 buttom18.addEventListener("click", function () {
     result.innerText = "="
 })
-const detail = document.getElementById("detail")
-const result = document.getElementById("result")
 
 let pendingVal;
 let evalStrAry = [];
