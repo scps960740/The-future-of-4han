@@ -10,12 +10,12 @@ window.addEventListener('load', function () {
     const calculater = document.getElementById("calculater")
     calculater.addEventListener("click", function () {
         title.innerText = "Calculater"
-        starbutton.href = "/project/calculater/index.html"
+        starbutton.href = "/project2/calculater/index.html"
     })
     const ooxx = document.getElementById("ooxx")
     ooxx.addEventListener("click", function () {
         title.innerText = "ooxx"
-        starbutton.href = "/project/ooxx/index.html"
+        starbutton.href = "/project2/ooxx/index.html"
     })
     const stopwatch = document.getElementById("stopwatch")
     stopwatch.addEventListener("click", function () {
