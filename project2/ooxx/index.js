@@ -51,16 +51,19 @@ let tieScore = 0
 function p1Win() {
     player1Score = player1Score + 1
     player1.innerText = player1Score
+    $('#exampleModal').modal('show')
 }
 
 function p2Win() {
-    player1Score = player1Score + 1
-    player2.innerText = player1Score
+    player2Score = player2Score + 1
+    player2.innerText = player2Score
+    $('#exampleModal').modal('show')
 }
 
 function tie() {
     tieScore = tieScore + 1
     ties.innerText = tieScore
+    $('#exampleModal').modal('show')
 }
 
 
@@ -133,6 +136,70 @@ function win() {
     if (i === 9) {
         tie()
         return
+    }
+}
+
+function restart(){
+    i = 0
+    positionArray = [
+        [false, false, false],
+        [false, false, false],
+        [false, false, false]
+    ]
+    circle1 = undefined
+    cross1 = undefined
+    circle2 = undefined
+    cross2 = undefined
+    circle3 = undefined
+    cross3 = undefined
+    circle4 = undefined
+    cross4 = undefined
+    circle5 = undefined
+    cross5 = undefined
+    circle6 = undefined
+    cross6 = undefined
+    circle7 = undefined
+    cross7 = undefined
+    circle8 = undefined
+    cross8 = undefined
+    circle9 = undefined
+    cross9 = undefined
+
+    let list1 = document.getElementById("frame1");
+    if (list1.childNodes[0] !== undefined) {
+        list1.removeChild(list1.childNodes[0]);
+    }
+    let list2 = document.getElementById("frame2");
+    if (list2.childNodes[0] !== undefined) {
+        list2.removeChild(list2.childNodes[0]);
+    }
+    let list3 = document.getElementById("frame3");
+    if (list3.childNodes[0] !== undefined) {
+        list3.removeChild(list3.childNodes[0]);
+    }
+    let list4 = document.getElementById("frame4");
+    if (list4.childNodes[0] !== undefined) {
+        list4.removeChild(list4.childNodes[0]);
+    }
+    let list5 = document.getElementById("frame5");
+    if (list5.childNodes[0] !== undefined) {
+        list5.removeChild(list5.childNodes[0]);
+    }
+    let list6 = document.getElementById("frame6");
+    if (list6.childNodes[0] !== undefined) {
+        list6.removeChild(list6.childNodes[0]);
+    }
+    let list7 = document.getElementById("frame7");
+    if (list7.childNodes[0] !== undefined) {
+        list7.removeChild(list7.childNodes[0]);
+    }
+    let list8 = document.getElementById("frame8");
+    if (list8.childNodes[0] !== undefined) {
+        list8.removeChild(list8.childNodes[0]);
+    }
+    let list9 = document.getElementById("frame9");
+    if (list9.childNodes[0] !== undefined) {
+        list9.removeChild(list9.childNodes[0]);
     }
 }
 
@@ -292,51 +359,14 @@ frame9.addEventListener("click", function () {
     win()
 })
 
+
 const restartButton = document.getElementById("restartButton")
 restartButton.addEventListener("click", function () {
-    i = 0
-    positionArray = [
-        [false, false, false],
-        [false, false, false],
-        [false, false, false]
-    ]
-    circle1 = undefined
-    cross1 = undefined
-    circle2 = undefined
-    cross2 = undefined
-    circle3 = undefined
-    cross3 = undefined
-    circle4 = undefined
-    cross4 = undefined
-    circle5 = undefined
-    cross5 = undefined
-    circle6 = undefined
-    cross6 = undefined
-    circle7 = undefined
-    cross7 = undefined
-    circle8 = undefined
-    cross8 = undefined
-    circle9 = undefined
-    cross9 = undefined
-
-    let list1 = document.getElementById("frame1");
-    list1.removeChild(list1.childNodes[0]);
-    let list2 = document.getElementById("frame2");
-    list2.removeChild(list2.childNodes[0]);
-    let list3 = document.getElementById("frame3");
-    list3.removeChild(list3.childNodes[0]);
-    let list4 = document.getElementById("frame4");
-    list4.removeChild(list4.childNodes[0]);
-    let list5 = document.getElementById("frame5");
-    list5.removeChild(list5.childNodes[0]);
-    let list6 = document.getElementById("frame6");
-    list6.removeChild(list6.childNodes[0]);
-    let list7 = document.getElementById("frame7");
-    list7.removeChild(list7.childNodes[0]);
-    let list8 = document.getElementById("frame8");
-    list8.removeChild(list8.childNodes[0]);
-    let list9 = document.getElementById("frame9");
-    list9.removeChild(list9.childNodes[0]);
+    restart()
 })
-// (無法使全部的圖片都用消失)
-// (有時有效 有時無效)
+
+const ooxxModel = document.getElementById("ooxxModel")
+ooxxModel.addEventListener("click", function () {
+    restart()
+    $('#exampleModal').modal('hide')
+})

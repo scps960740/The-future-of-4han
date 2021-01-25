@@ -17,11 +17,11 @@ function calculate() {
             sum = sum - current
             result.innerText = sum
             break;
-        case "×":
+        case "*":
             sum = sum * current
             result.innerText = sum
             break;
-        case "÷":
+        case "/":
             sum = sum / current
             result.innerText = sum
             break;
@@ -143,7 +143,7 @@ buttom00.addEventListener("click", function () {
 const buttomMultiplication = document.getElementById("buttomMultiplication")
 buttomMultiplication.addEventListener("click", function () {
     if(beforeCalculate === true && afterCalculate === false){
-        upDatedetail("x")
+        upDatedetail("*")
         result.innerText = "" 
         beforeCalculate = false
         afterCalculate = false
@@ -152,7 +152,7 @@ buttomMultiplication.addEventListener("click", function () {
 const buttomDivision = document.getElementById("buttomDivision")
 buttomDivision.addEventListener("click", function () {
     if(beforeCalculate === true && afterCalculate === false){
-        upDatedetail("÷")
+        upDatedetail("/")
         result.innerText = "" 
         beforeCalculate = false
         afterCalculate = false
@@ -185,7 +185,24 @@ buttomComma.addEventListener("click", function () {
 
 const buttomEqual =document.getElementById("buttomEqual")
 buttomEqual.addEventListener("click",function(){
+    let finalDetail = detail.innerText;
+  if (
+    finalDetail[finalDetail.length - 1] === "/" ||
+    finalDetail[finalDetail.length - 1] === "*" ||
+    finalDetail[finalDetail.length - 1] === "+" ||
+    finalDetail[finalDetail.length - 1] === "-"
+  ) {
+    let ces = finalDetail.split("");
+    ces = ces.slice(0, ces.length - 1);
+    finalDetail = ces.join("");
+  }
 
+  let res = eval(finalDetail);
+  result.innerText = res.toFixed(2);
+
+  detail.innerText = ""
+  beforeCalculate = false;
+  afterCalculate = true;
 })
 
 const buttomFallback = document.getElementById("buttomFallback")
