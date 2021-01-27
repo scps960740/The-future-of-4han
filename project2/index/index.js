@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
     const stopwatch = document.getElementById("stopwatch")
     stopwatch.addEventListener("click", function () {
         title.innerText = "Stopwatch"
-        starbutton.href = "/project/Stopwatch/index.html"
+        starbutton.href = "/project2/Stopwatch/index.html"
         })
     })
 
