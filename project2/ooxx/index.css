@@ -2,17 +2,22 @@
 
 body {
     margin: 0;
+}
+
+.backgroundSize {
     background-image: url(https://p1.pstatp.com/origin/pgc-image/423458339d1b416a8409344b757f16da);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 100vh;
+    width: 100%;
     padding-top: 130px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .box1 {
-    background-color: coral;
+    background-color: black;
     color: cornsilk;
     width: 33%;
     height: 600px;
@@ -25,8 +30,8 @@ body {
 .project1 {
     background-color: rgb(20, 19, 19);
     width: 33.3%;
-    height: 200px;
-    color:  rgb(20, 19, 19);
+    height:33.3%;
+    color: rgb(20, 19, 19);
     border-bottom: solid;
     border-right: solid;
     border-color: rgba(253, 249, 249, 0.822);
@@ -37,8 +42,8 @@ body {
 .project2 {
     background-color: rgb(20, 19, 19);
     width: 33.3%;
-    height: 200px;
-    color:  rgb(20, 19, 19);
+    height:33.3%;
+    color: rgb(20, 19, 19);
     border-bottom: solid;
     border-right: solid;
     border-color: rgb(253, 249, 249, 0.822);
@@ -46,6 +51,7 @@ body {
     box-sizing: border-box;
 
 }
+
 .project1>img {
     width: 100%;
     height: 100%;
@@ -62,10 +68,10 @@ body {
 }
 
 .project3 {
-    background-color:  rgb(20, 19, 19);
+    background-color: rgb(20, 19, 19);
     width: 33.4%;
-    height: 200px;
-    color:  rgb(20, 19, 19);
+    height:33.3%;
+    color: rgb(20, 19, 19);
     border-bottom: solid;
     border-color: rgb(253, 249, 249, 0.822);
     border-width: 5px;
@@ -73,10 +79,10 @@ body {
 }
 
 .project4 {
-    background-color:  rgb(20, 19, 19);
+    background-color: rgb(20, 19, 19);
     width: 33.3%;
-    height: 200px;
-    color:  rgb(20, 19, 19);
+    height:33.3%;
+    color: rgb(20, 19, 19);
     border-bottom: solid;
     border-right: solid;
     border-color: rgb(253, 249, 249, 0.822);
@@ -105,10 +111,10 @@ body {
 }
 
 .project5 {
-    background-color:  rgb(20, 19, 19);
+    background-color: rgb(20, 19, 19);
     width: 33.3%;
-    height: 200px;
-    color:  rgb(20, 19, 19);
+    height:33.3%;
+    color: rgb(20, 19, 19);
     border-bottom: solid;
     border-right: solid;
     border-color: rgb(253, 249, 249, 0.822);
@@ -117,10 +123,10 @@ body {
 }
 
 .project6 {
-    background-color:  rgb(20, 19, 19);
+    background-color: rgb(20, 19, 19);
     width: 33.4%;
-    height: 200px;
-    color:  rgb(20, 19, 19);
+    height:33.3%;
+    color: rgb(20, 19, 19);
     border-bottom: solid;
     border-color: rgb(253, 249, 249, 0.822);
     border-width: 5px;
@@ -128,10 +134,10 @@ body {
 }
 
 .project7 {
-    background-color:  rgb(20, 19, 19);
+    background-color: rgb(20, 19, 19);
     width: 33.3%;
-    height: 200px;
-    color:  rgb(20, 19, 19);
+    height:33.4%;
+    color: rgb(20, 19, 19);
     border-right: solid;
     border-color: rgb(253, 249, 249, 0.822);
     border-width: 5px;
@@ -139,10 +145,10 @@ body {
 }
 
 .project8 {
-    background-color:  rgb(20, 19, 19);
+    background-color: rgb(20, 19, 19);
     width: 33.3%;
-    height: 200px;
-    color:  rgb(20, 19, 19);
+    height:33.4%;
+    color: rgb(20, 19, 19);
     border-right: solid;
     border-color: rgb(253, 249, 249, 0.822);
     border-width: 5px;
@@ -150,10 +156,10 @@ body {
 }
 
 .project9 {
-    background-color:  rgb(20, 19, 19);
+    background-color: rgb(20, 19, 19);
     width: 33.4%;
-    height: 200px;
-    color:  rgb(20, 19, 19);
+    height:33.4%;
+    color: rgb(20, 19, 19);
     border-color: rgb(253, 249, 249, 0.822);
     border-width: 5px;
     box-sizing: border-box;
@@ -163,6 +169,7 @@ body {
     width: 100%;
     height: 100%;
 }
+
 .project9>img {
     width: 100%;
     height: 100%;
@@ -171,12 +178,13 @@ body {
 .box2 {
     color: white;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     margin-top: 90px;
     letter-spacing: 2px;
     padding-left: 30%;
     padding-right: 32%;
+    box-sizing: border-box;
 }
 
 .headder1 {
@@ -184,29 +192,75 @@ body {
     font-family: 'Raleway', sans-serif;
     font-size: 30px
 }
-.headder2 {
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    font-size: 30px;
-}
-.headder3 {
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    font-size: 30px;
-}
-.box3{
+
+.box3 {
     display: flex;
     justify-content: center;
     margin-top: 15px;
+    box-sizing: border-box;
 }
-.starButton{
-    background-color:  rgb(73, 30, 190);
+
+.starButton {
+    background-color: rgb(73, 30, 190);
     width: 90px;
     height: 40px;
     color: white;
     border-color: rgb(253, 249, 249, 0.822);
     border-width: 5px;
-    margin-left: 300%;
     margin-top: 25px;
     font-family: 'Raleway', sans-serif;
+}
+.starButton1{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (min-width:0px) and (max-width:768px) {
+    .backgroundSize {
+        padding-top: 20px;
+        background-image: url(/project2/ooxx/istockphoto-501655522-612x612.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .box1 {
+        height: 60%;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .starButton1{
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 30px;
+        box-sizing: border-box;
+    }
+
+    .box2 {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 150px;
+        letter-spacing: 2px;
+        box-sizing: border-box;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .box3 {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        box-sizing: border-box;
+    }
+    .headder1{
+        color: white;
+        font-family: 'Raleway', sans-serif;
+        font-size: 20px
+    }
 }
