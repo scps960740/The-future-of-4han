@@ -370,3 +370,18 @@ ooxxModel.addEventListener("click", function () {
     restart()
     $('#exampleModal').modal('hide')
 })
+
+const meanbar = document.getElementById('meanbar')
+
+const sidebar = document.getElementById("sidebar")
+sidebar.addEventListener("click", function () {
+    sidebar.style.right = "-9999px"
+    meanbar.style.right = "-9999px"
+})
+
+
+const mobileheaderContent2 = document.getElementById('mobileheaderContent2')
+mobileheaderContent2.addEventListener('click',function(){
+    meanbar.style.right = "0px"
+    sidebar.style.right = "0px"
+})
