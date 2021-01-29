@@ -34,9 +34,15 @@ body {
     padding-top: 3%;
 }
 
-.progress-ring__circle {
-    transition: 0.35s stroke-dashoffset;
+.box2>p {
+    position: absolute;
+    font-size: 60px;
+    letter-spacing: 3px;
+    color: white;
+}
 
+.timeCircle {
+    transition: 0.35s stroke-dashoffset;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
 }
@@ -92,6 +98,48 @@ body {
 }
 
 .project1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: 20%;
+    color: rgb(154, 157, 231);
+    font-size: 20px;
+    font-weight: 1000;
+    font-family: 'Staatliches', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    letter-spacing: 2px;
+}
+
+.btn-primary {
+    background-color: rgb(73, 30, 190);
+    color: white;
+    border-color: rgb(154, 157, 231);
+    font-family: 'Staatliches', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    letter-spacing: 2px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+.inputclass{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputclass1{
+    width: 40px;
+}
+
+.inputclass2{
+    width: 40px;
+}
+
+.inputclass3{
+    width: 40px;
+}
+
+.project2 {
     display: flex;
     align-items: center;
     justify-content: center;

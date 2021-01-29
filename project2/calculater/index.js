@@ -226,3 +226,19 @@ buttomFallback.addEventListener("click", function () {
 })
 // (倒退鍵 先把result的文字傳換成陣列 使他產生長度(length)才有辦法去刪除最後一個字)
 // (在判斷是否按下數字鍵 還沒產生結果時 才能其倒退 用IF+布林直去辨別按數字的當下)
+
+
+const meanbar = document.getElementById('meanbar')
+
+const sidebar = document.getElementById("sidebar")
+sidebar.addEventListener("click", function () {
+    sidebar.style.right = "-9999px"
+    meanbar.style.right = "-9999px"
+})
+
+
+const mobileheaderContent2 = document.getElementById('mobileheaderContent2')
+mobileheaderContent2.addEventListener('click',function(){
+    meanbar.style.right = "0px"
+    sidebar.style.right = "0px"
+})
