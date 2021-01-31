@@ -2,21 +2,23 @@ window.addEventListener("load", function () {
   const timeCircle = document.querySelector(".timeCircle");
 
   const cirumference = Math.PI * 2 * 180;
-
   let offset = 0;
   timeCircle.style.strokeDasharray = `${cirumference}`;
   timeCircle.style.strokeDashoffset = "0";
 
-  // const cicleInterval = setInterval(function () {
-  //     if (offset >= cirumference - cirumference * 0.05) {
-  //         clearInterval(cicleInterval);
-  //         timeCircle.style.strokeDashoffset = `${cirumference}`;
-  //     }
+//   const cicleInterval = setInterval(function () {
+//       // 重置
+//     if (offset >= cirumference - cirumference * 0.05) {
+//         clearInterval(cicleInterval);
+//         timeCircle.style.strokeDashoffset = `${cirumference}`;
+//     }
 
-  //     offset = offset + cirumference * 0.05;
-  //     timeCircle.style.strokeDashoffset = `${offset}`;
+//     offset = offset + cirumference * 0.05;
+//     timeCircle.style.strokeDashoffset = `${offset}`;
+//   }, 1000);
 
-  // }, 1000);
+  // // TODO del
+  // console.log('cirumference', cirumference);
 
   // ------------ 變數區 ------------
 
@@ -37,6 +39,7 @@ window.addEventListener("load", function () {
   let vul2 = 00;
   let vul3 = 00;
   let cicleInterval = undefined;
+  let TOTAL_SECOND = undefined
 
   // ------------ function區 ------------
 
@@ -78,6 +81,16 @@ window.addEventListener("load", function () {
     inputclass2.value = "00";
     inputclass3.value = "00";
     playImg.src = "play.svg";
+    timeCircle.style.strokeDashoffset = "0";
+    buttomVul = 1
+    cicleInterval = undefined
+    vul1 = 00
+    vul2 = 00
+    vul3 = 00
+    offset = 0
+    timeCircle.style.strokeDasharray = `${cirumference}`;
+    timeCircle.style.strokeDashoffset = "0";
+    TOTAL_SECOND = undefined
   }
 
   function stop() {
@@ -86,17 +99,27 @@ window.addEventListener("load", function () {
 
   function start() {
     let totalSecond = getTotalSecond();
+    if (TOTAL_SECOND === undefined) {
+        TOTAL_SECOND = totalSecond
+    }
 
-    cicleInterval = setInterval(function () {
+    const OFFSET_EVERY_SECOND = cirumference / TOTAL_SECOND;
+
+    function task() {
       if (totalSecond <= 0) {
         reset();
         return;
       }
 
+      offset = offset + OFFSET_EVERY_SECOND;
+      timeCircle.style.strokeDashoffset = `${offset}`;
+
       totalSecond = totalSecond - 1;
 
       timeVal.innerText = convertToTimeFormat(totalSecond);
-    }, 1000);
+    }
+
+    cicleInterval = setInterval(task, 1000);
   }
 
   // ------------ event click區 ------------
@@ -137,16 +160,24 @@ window.addEventListener("load", function () {
       second = 0;
       inputclass3.value = "00";
     }
-    // if (hour < 10) {
-    //     vul1 = `0${hour}`
-    // } else {
-    //     vul1 = `${hour}`
-    // }
-    vul1 = addZero(hour);
-    vul2 = addZero(minute);
-    vul3 = addZero(second);
+    // // if (hour < 10) {
+    // //     vul1 = `0${hour}`
+    // // } else {
+    // //     vul1 = `${hour}`
+    // // }
+    // vul1 = addZero(hour);
+    // vul2 = addZero(minute);
+    // vul3 = addZero(second);
 
-    // timeVal.innerText = vul1 + ":" + vul2 + ":" + vul3;
-    timeVal.innerText = `${vul1}:${vul2}:${vul3}`;
+
+    // // timeVal.innerText = vul1 + ":" + vul2 + ":" + vul3;
+    // timeVal.innerText = `${vul1}:${vul2}:${vul3}`;
+
+
+    // 等於這寫法
+    // let totalSec = hour * 3600 + minute * 60 + second
+    // let text = convertToTimeFormat(totalSec)
+    // timeVal.innerText = text
+    timeVal.innerText = convertToTimeFormat(hour * 3600 + minute * 60 + second);
   });
 });

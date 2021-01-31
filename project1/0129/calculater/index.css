@@ -130,25 +130,31 @@ body {
     margin-top: 5%;
     font-weight: 500;
 }
-.mobileHadder{
+
+.mobileHadder {
     display: none;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
     padding: 0 20px 0 20px;
 }
-.mobileheaderContent1{
+
+.mobileheaderContent1 {
     width: 48px;
 }
-.mobileheaderContent1>img{
+
+.mobileheaderContent1>img {
     width: 100%;
 }
-.mobileheaderContent2{
+
+.mobileheaderContent2 {
     width: 20px;
 }
-.mobileheaderContent2>img{
+
+.mobileheaderContent2>img {
     width: 100%;
 }
+
 .logo {
     width: 100%;
 }
@@ -156,24 +162,27 @@ body {
 .logo>img {
     width: 100%
 }
-.mobileHadder{
+
+.mobileHadder {
     display: none;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
     padding: 0 20px 0 20px;
 }
-.mobileTittle{
+
+.mobileTittle {
     color: white;
     width: 100%;
-    height: calc(100% - 140px);;
+    height: calc(100% - 140px);
+    ;
     display: flex;
     justify-content: center;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     padding-top: 45%;
 }
 
-.mobileTittle1{
+.mobileTittle1 {
     width: 100%;
     text-align: center;
     font-weight: lighter;
@@ -181,7 +190,8 @@ body {
     letter-spacing: 2px;
     font-size: 50px;
 }
-.sidebar{
+
+.sidebar {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -191,7 +201,8 @@ body {
     z-index: 0;
     transition: right .5s;
 }
-.meanbar{
+
+.meanbar {
     position: absolute;
     width: 70%;
     height: 100%;
@@ -201,7 +212,8 @@ body {
     z-index: 1;
     transition: right .5s;
 }
-.sidebarItem{
+
+.sidebarItem {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -209,28 +221,33 @@ body {
     width: 100%;
     height: 150px;
 }
-.sidebarItemIcon{
+
+.sidebarItemIcon {
     width: 60px;
 }
-.sidebarItemIcon>img{
-    width: 100%;    
+
+.sidebarItemIcon>img {
+    width: 100%;
 }
-.sidebarItem1{
+
+.sidebarItem1 {
     display: flex;
     padding-top: 10px;
     padding-left: 10px;
     box-sizing: border-box;
 }
 
-.siderbarItemIcon1{
+.siderbarItemIcon1 {
     width: 60px;
-    text-decoration:none;
+    text-decoration: none;
     color: black;
 }
-.siderbarItemIcon1>img{
+
+.siderbarItemIcon1>img {
     width: 100%;
 }
-.siderbarItemTittle{
+
+.siderbarItemTittle {
     font-size: 16px;
     letter-spacing: 2px;
     box-sizing: border-box;
@@ -245,15 +262,17 @@ body {
         background-color: #041936;
         border-radius: 30px;
         box-shadow: 10px 10px 50px black;
-        margin-left:auto;
+        margin-left: auto;
         margin-right: auto;
         box-sizing: border-box;
     }
+
     .buttomEqualcss {
         height: 60%;
         width: 100%;
-       
+
     }
+
     .backgroundSize {
         background-image: url(Earth-planet-spaceship-universe_1920x1080.jpg);
         background-repeat: no-repeat;
@@ -266,16 +285,31 @@ body {
         overflow: hidden;
         padding-top: 3%;
     }
-    .wrapper{
+
+    .wrapper {
         margin-top: 30%;
-        }
-        .header{
-            display: none;
-        }
-        .mobileHadder{
-            display: flex;
-        }
-        .content{
-            display: none;
-        }
+    }
+
+    .header {
+        display: none;
+    }
+
+    .mobileHadder {
+        display: flex;
+    }
+
+    .content {
+        display: none;
+    }
+
+    .box2 {
+        font-size: 20px;
+        display: block;
+        box-sizing: border-box;
+        padding-right: 0;
+        text-align: right;
+        white-space: nowrap;
+        overflow-x: auto;
+        padding-top: 30px;
+    }
 }
