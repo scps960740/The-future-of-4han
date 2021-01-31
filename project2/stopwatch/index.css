@@ -80,6 +80,11 @@ body {
     width: 100px;
     height: 100px;
     box-sizing: border-box;
+    transition: background-color .3s;
+}
+
+.buttom1:active{
+    background-color: rgb(154, 157, 231);
 }
 
 .buttom2 {
@@ -95,7 +100,12 @@ body {
     width: 100px;
     height: 100px;
     box-sizing: border-box;
+    transition: background-color .3s
 }
+.buttom2:active{
+    background-color: rgb(154, 157, 231);
+}
+
 
 .project1 {
     display: flex;
