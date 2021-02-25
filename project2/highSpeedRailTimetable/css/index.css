@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap');
+
+table {
+  border-bottom: 1px solid white;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  box-sizing: border-box;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 2%;
+}
+
+.box {
+  display: block;
+}
+
+th {
+  background-color: #009FCC;
+  height: 70px;
+  color: black;
+  text-align: left;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+td {
+  height: 60px;
+  color: rgb(207, 205, 205);
+  font-size: 20px;
+  border-bottom: 1px solid rgb(102, 102, 102);
+}
+
+.numberPages {
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+  width: 300px;
+  height: 100px;
+  margin-left: 85%;
+  padding-top: 30px;
+  color: white;
+}
+
+.Pages {
+  width: 20px;
+  height: 20px;
+}
+
+.Pages>img {
+  width: 100%;
+}
+
+.Pages1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.mobilebox {
+  display: none;
+  flex-wrap: wrap;
+  color: white;
+  position: relative;
+  z-index: 0;
+  top: 0;
+  margin-right: 0px;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+
+.mobileTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10%;
+  width: 100%;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 40px;
+  padding: 0 18px 0 15px;
+  letter-spacing: 2px;
+}
+
+.mobileTitleImg {
+  width: 30px;
+  height: 30px;
+}
+
+.mobileTitleImg>img {
+  height: 100%;
+}
+
+.mobileTitle1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  font-size: 30px;
+  box-sizing: border-box;
+  margin: 15px 10px 15px 10px;
+}
+
+.mobileProject {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 100%;
+  height: 100%;
+  border: 0.01px solid rgb(102, 101, 101);
+  background: linear-gradient(to right, rgb(46, 46, 46), rgb(0, 0, 0));
+  box-shadow: -3px -3px 10px rgb(102, 102, 102);
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.menuMobile {
+  position: absolute;
+  top: 0;
+  right: -999px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: right .5s;
+}
+
+.menuProject {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  color: white;
+  font-size: 40px;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+}
+
+.menuProject1 {
+  height: 100px;
+  width: 100%;
+  color: white;
+  font-size: 25px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.textType {
+  color: white;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.menuProject1-1 {
+  height: 40px;
+  width: 200px;
+  display: flex;
+  color: black;
+  background: rgb(179, 205, 224);
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menuProject1-2 {
+  height: 38px;
+  width: 70px;
+  display: flex;
+  color: black;
+  background: rgb(179, 205, 224);
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px;
+}
+
+.sidebar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: -999px;
+  background-color: rgb(14, 13, 13);
+  z-index: 0;
+  transition: right .5s;
+}
+
+@media screen and (max-width: 768px) {
+  .box {
+    display: none;
+  }
+
+  .mobilebox {
+    display: flex;
+  }
+}
