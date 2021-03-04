@@ -1,5 +1,10 @@
 window.addEventListener("load",function(){
     const search = document.getElementById("search")
+    const box3 = document.getElementById("box3")
+    const selector = document.getElementById("selector")
+    const selectorItems = document.getElementById("selectorItems")
+    const tri1 = document.getElementById("tri1")
+
 
     search.addEventListener("click",function () {
         if(this.value === "Search..."){
@@ -7,9 +12,28 @@ window.addEventListener("load",function(){
         } 
     })
 
-    let arr = ["我是1", "我是2", "我是3"]
-    const box3 = document.getElementById("box3")
 
+
+    let toggle = 0
+    selector.addEventListener("click", function() {
+        if (toggle === 0) {
+            selectorItems.style.height = "150px"
+            selectorItems.style.boxShadow = "1px 3px 7px 2px #e4e6fa"
+            tri1.style.transform = "rotate(180deg)"
+            toggle = 1
+        } else {
+            selectorItems.style.height = "0px"
+            selectorItems.style.boxShadow = "0px"
+            tri1.style.transform = "rotate(0deg)"
+            toggle = 0
+        }
+    })
+
+
+
+
+
+    let arr = ["我是1", "我是2", "我是3"]
     let htmlStr = ""
     arr.map(function(s, index) {
 
