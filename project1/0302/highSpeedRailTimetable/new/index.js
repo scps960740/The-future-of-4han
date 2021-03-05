@@ -1,4 +1,4 @@
-window.addEventListener("load",function(){
+window.addEventListener("load", function () {
     const search = document.getElementById("search")
     const box3 = document.getElementById("box3")
     const selector = document.getElementById("selector")
@@ -6,10 +6,10 @@ window.addEventListener("load",function(){
     const tri1 = document.getElementById("tri1")
 
 
-    search.addEventListener("click",function () {
-        if(this.value === "Search..."){
-            this.value=""    
-        } 
+    search.addEventListener("click", function () {
+        if (this.value === "Search...") {
+            this.value = ""
+        }
     })
 
 
@@ -29,13 +29,13 @@ window.addEventListener("load",function(){
         }
     })
 
-
-
-
+    const box3 = document.getElementById("box3")
 
     let arr = ["我是1", "我是2", "我是3"]
+
     let htmlStr = ""
-    arr.map(function(s, index) {
+    
+    arr.map(function (s, index) {
 
         console.log("s", s, "index", index);
 
