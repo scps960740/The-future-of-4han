@@ -36,10 +36,10 @@ window.addEventListener("load", function () {
                 name
             } = item
 
-            const currentElement = `<div id=id${a++} class="box2-dropdown-items"value="${id}">${name}</div>`
+            const currentElement = `<div id=id${a++} class="box2-dropdown-items" data-start="${id}">${name}</div>`
             divHtml1 += currentElement
 
-            const currentElement2 = `<div id=id${b++} class="box2-dropdown-items"value="${id}">${name}</div>`
+            const currentElement2 = `<div id=id${b++} class="box2-dropdown-items" data-end="${id}">${name}</div>`
             divHtml2 += currentElement2
 
             starStationSelector.innerHTML = divHtml1
@@ -83,13 +83,8 @@ window.addEventListener("load", function () {
         }
     }
 
-
-    selector.addEventListener("click", function () {
-        downAinme(selectorItem, tri1)
-    })
-
-    selectorDate.addEventListener("click", function () {
-        downAinme(selectorItem2, tri2)
+    selectorDate.addEventListener("change", function (e) {
+        console.log(e.target.value)
     })
 
     starStation.addEventListener("click", function () {
