@@ -1,11 +1,14 @@
 window.addEventListener("load", function () {
     const search = document.getElementById("search")
     const box3 = document.getElementById("box3")
-    const selector = document.getElementById("selector")
+    const box4 = document.getElementById("box4")
+    // const selector = document.getElementById("selector")
     const tri1 = document.getElementById("tri1")
     const tri2 = document.getElementById("tri2")
     const tri3 = document.getElementById("tri3")
     const tri4 = document.getElementById("tri4")
+    const menuhome = document.getElementById("menuhome")
+    const menu = document.getElementById("menu")
     const selectorItem = document.getElementById("selectorItem")
     const selectorItem2 = document.getElementById("selectorItem2")
     const selectorItem3 = document.getElementById("selectorItem3")
@@ -17,6 +20,8 @@ window.addEventListener("load", function () {
     const endStationSelector = document.getElementById("endStationSelector")
     const starStationName = document.getElementById("starStationName")
     const endStationName = document.getElementById("endStationName")
+    const box231 = document.getElementById("box231")
+    const box232 = document.getElementById("box232")
 
     const HOST_API = "https://ptx.transportdata.tw/MOTC"
     const ALL_STATION_API = `${HOST_API}/v2/Rail/THSR/Station?$format=JSON`
@@ -36,10 +41,10 @@ window.addEventListener("load", function () {
                 name
             } = item
 
-            const currentElement = `<div id=id${a++} class="box2-dropdown-items"value="${id}">${name}</div>`
+            const currentElement = `<div id=id${a++} class="box2-dropdown-items" data-val="${id}">${name}</div>`
             divHtml1 += currentElement
 
-            const currentElement2 = `<div id=id${b++} class="box2-dropdown-items"value="${id}">${name}</div>`
+            const currentElement2 = `<div id=id${b++} class="box2-dropdown-items" data-val="${id}">${name}</div>`
             divHtml2 += currentElement2
 
             starStationSelector.innerHTML = divHtml1
@@ -67,36 +72,92 @@ window.addEventListener("load", function () {
         }
     })
 
-    let toggle = 0
+    menuhome.addEventListener("click", function () {
+        box3.style.display = "flex"
+        box4.style.display = "none"
+        box232.style.background = "black";
+        box232.style.boxShadow = "1px 3px 5px 2px #edeefa";
+        box232.style.borderRadius = "10px";
+        box231.style.background = "0";
+        box231.style.boxShadow = "0";
+        box231.style.borderRadius = "0";
+    })
 
-    function downAinme(date, img) {
-        if (toggle === 0) {
-            date.style.height = "150px"
-            date.style.boxShadow = "1px 3px 7px 2px #e4e6fa"
-            img.style.transform = "rotate(180deg)"
-            toggle = 1
-        } else {
-            date.style.height = "0px"
-            date.style.boxShadow = "0px"
-            img.style.transform = "rotate(0deg)"
-            toggle = 0
+    menu.addEventListener("click", function () {
+        box3.style.display = "none"
+        box4.style.display = "flex"
+        box231.style.background = "black";
+        box231.style.boxShadow = "1px 3px 5px 2px #edeefa";
+        box231.style.borderRadius = "10px";
+        box232.style.background = "0";
+        box232.style.boxShadow = "0";
+        box232.style.borderRadius = "0";
+    })
+
+
+    // let toggle = 0
+    // function downAinme(date, img) {
+    //     if (toggle === 0) {
+    //         date.style.height = "150px"
+    //         date.style.boxShadow = "1px 3px 7px 2px #e4e6fa"
+    //         img.style.transform = "rotate(180deg)"
+    //         toggle = 1
+    //     } else {
+    //         date.style.height = "0px"
+    //         date.style.boxShadow = "0px"
+    //         img.style.transform = "rotate(0deg)"
+    //         toggle = 0
+    //     }
+    // }
+
+    // const downAinme = function () {...}
+
+    // class
+    function createDownAnime() {
+        let toggle = 0
+        return function (date, img) {
+            if (toggle === 0) {
+                date.style.height = "150px"
+                date.style.boxShadow = "1px 3px 7px 2px #e4e6fa"
+                img.style.transform = "rotate(180deg)"
+                toggle = 1
+            } else {
+                date.style.height = "0px"
+                date.style.boxShadow = "0px"
+                img.style.transform = "rotate(0deg)"
+                toggle = 0
+            }
         }
     }
+    // 閉包 closure
 
 
-    selector.addEventListener("click", function () {
-        downAinme(selectorItem, tri1)
+    // function createDownAnime() {
+    //     return function () { console.log("我是誰") }
+    // }
+
+    // let a = createDownAnime() //10
+    // a()
+
+    // selector.addEventListener("click", function () {
+    //     downAinme(selectorItem, tri1)
+    // })
+
+    selectorDate.addEventListener("change", function (e) {
+        // downAinme(selectorItem2, tri2)
+        console.log(e.target.value);
     })
 
-    selectorDate.addEventListener("click", function () {
-        downAinme(selectorItem2, tri2)
-    })
-
+    const ainme1 = createDownAnime()
     starStation.addEventListener("click", function () {
-        downAinme(selectorItem3, tri3)
+        ainme1(selectorItem3, tri3)
+
         const id0 = document.getElementById("id0")
         id0.addEventListener('click', function () {
             starStationName.innerText = id0.innerText
+
+            // dataset
+            console.log(id0.dataset.val);
         })
         const id1 = document.getElementById("id1")
         id1.addEventListener('click', function () {
@@ -144,8 +205,11 @@ window.addEventListener("load", function () {
         })
     })
 
+    const ainme2 = createDownAnime()
     endStation.addEventListener("click", function () {
-        downAinme(selectorItem4, tri4)
+        ainme2(selectorItem4, tri4)
+
+
         const id20 = document.getElementById("id20")
         id20.addEventListener('click', function () {
             endStationName.innerText = id20.innerText
@@ -200,7 +264,7 @@ window.addEventListener("load", function () {
 
 
     // 先預設一個值  用來test格式 是否正確
-    let arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    let arr = []
 
     // 預設一個空字串
     let htmlStr = ""
@@ -277,5 +341,5 @@ window.addEventListener("load", function () {
         htmlStr += item
     })
 
-    box3.innerHTML = htmlStr
+    // box3.innerHTML = htmlStr
 })
