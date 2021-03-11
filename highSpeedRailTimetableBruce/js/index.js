@@ -1,14 +1,3 @@
-import $ from 'jquery'
-
-import { a as AA } from './a'
-import bbbbb from './b'
-
-
-// TODO del
-console.log('AA', AA)
-console.log(bbbbb)
-
-
 window.addEventListener("load", function () {
     const search = document.getElementById("search")
     const box3 = document.getElementById("box3")
@@ -33,9 +22,11 @@ window.addEventListener("load", function () {
     const endStationName = document.getElementById("endStationName")
     const box231 = document.getElementById("box231")
     const box232 = document.getElementById("box232")
+    const buttonStation = document.getElementById("buttonStation")
 
     const HOST_API = "https://ptx.transportdata.tw/MOTC"
     const ALL_STATION_API = `${HOST_API}/v2/Rail/THSR/Station?$format=JSON`
+    const LAST_STATION_API = `${HOST_API}/v2/Rail/THSR/DailyTimetable/OD/start/to/end/date?$format=JSON`
 
     let filterData = []
 
@@ -63,115 +54,157 @@ window.addEventListener("load", function () {
         })
     }
 
-    // const mockData = [{
-    //     StationID: "001",
-    //     StationName: {
-    //         Zh_tw: "測試車站"
-    //     }
-    // },{
-    //     StationID: "001",
-    //     StationName: {
-    //         Zh_tw: "測試車站"
-    //     }
-    // },{
-    //     StationID: "001",
-    //     StationName: {
-    //         Zh_tw: "測試車站"
-    //     }
-    // },{
-    //     StationID: "001",
-    //     StationName: {
-    //         Zh_tw: "測試車站"
-    //     }
-    // }]
 
-    // Promise https://www.w3schools.com/js/js_promise.asp
-    fetch(ALL_STATION_API)
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (data) {
-            // TODO del
-            console.log('data', data)
-            filterData = data.map(function (item) {
-                const stationID = item.StationID
-                const stationName = item.StationName.Zh_tw
-                return {
-                    id: stationID,
-                    name: stationName
-                }
-            })
-            createStationOption(filterData)
-        })
-        .catch(function (error) {
-            // 如果出錯了要做的事情
-            window.alert("系統錯誤，請稍後再試...")
-        })
+    const SATATION = [{
+        id: "0990",
+        name: "南港"
+    }, {
+        id: "1000",
+        name: "台北"
+    }, {
+        id: "1010",
+        name: "板橋"
+    }, {
+        id: "1020",
+        name: "桃園"
+    }, {
+        id: "1040",
+        name: "台中"
+    }, {
+        id: "1030",
+        name: "新竹"
+    }, {
+        id: "1035",
+        name: "苗栗"
+    }, {
+        id: "1043",
+        name: "彰化"
+    }, {
+        id: "3車站代碼",
+        name: "3"
+    }, {
+        id: "5車站代碼",
+        name: "5"
+    }, {
+        id: "11車站代碼",
+        name: "11"
+    }, {
+        id: "31車站代碼",
+        name: "31"
+    }]
 
-    // let obj = { name: "小明", age: 200 }
-    // // TODO del
-    // console.log('obj', JSON.stringify(obj))
+    createStationOption(SATATION)
 
-    const option = {
-        method: 'POST',
-        body: JSON.stringify({
-            title: 'foo',
-            body: 'bar',
-            userId: 1,
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    }
 
-    // POST
-    fetch('https://jsonplaceholder.typicode.com/posts', option)
-        .then((response) => response.json())
-        .then((json) => {
-            console.log('json', json)
-        })
-        .catch(function (error) {
-            // 如果出錯了要做的事情
-            window.alert("系統錯誤，請稍後再試...")
-        })
-
-    // try {
-    //     $.get(ALL_STATION_API, function (data) {
-    //         filterData = data.map(function (item) {
-    //             const stationID = item.StationID
-    //             const stationName = item.StationName.Zh_tw
-    //             return {
-    //                 id: stationID,
-    //                 name: stationName
-    //             }
-    //         })
-    //         createStationOption(filterData)
+    // $.get(ALL_STATION_API, function (date) {
+    //     filterData = date.map(function (item) {
+    //         const stationID = item.StationID
+    //         const stationName = item.StationName.Zh_tw
+    //         return {
+    //             id: stationID,
+    //             name: stationName
+    //         }
     //     })
-    //     // throw new Error("我錯了")
-    // } catch (error) {
-    //     // 如果出錯了要做的事情
-    //     window.alert("系統錯誤，請稍後再試...")
-    // } 
-
-
-    // let arr = []
-    // if (arr.length === 0) {
-    //     throw new Error("我錯了")
-    // }
-
-
-    // filterData = mockData.map(function (item) {
-    //     const stationID = item.StationID
-    //     const stationName = item.StationName.Zh_tw
-    //     return {
-    //         id: stationID,
-    //         name: stationName
-    //     }
+    //     createStationOption(filterData)
     // })
 
-    createStationOption(filterData)
+    buttonStation.addEventListener("click", function () {
+        let time = selectorDate.value
+        let start = starStation.dataset.val
+        let end = endStation.dataset.val
+
+        if (selectorDate.value === "") {
+            window.alert("請輸入日期")
+            return
+        }
+        if (starStation.dataset.val === "" || endStation.dataset.val === "") {
+            window.alert("請輸入站別")
+            return
+        }
+        const composedSearchAPIURL = LAST_STATION_API.replace("start",start).replace("end",end).replace("date",time)
+
+        console.log(composedSearchAPIURL)
+
+        let divdata = ""
+        $.get(composedSearchAPIURL,function (data) {
+            data.map(function (item) {
+                const {TrainDate,DailyTrainInfo,OriginStopTime,DestinationStopTime} = item
+                const {TrainNo} = DailyTrainInfo
+                const {StationName : startStationName, DepartureTime : starStationTime} = OriginStopTime
+                const {Zh_tw : startZh_tw} = startStationName
+                const {StationName : endStationName ,ArrivalTime : endStationTime} = DestinationStopTime
+                const {Zh_tw : endZh_tw} = endStationName
+
+                
+                
+                let divStation = `<div class="box3-1">
+                <div class="box3-1-1">
+                    <div class="box3-1-1-1">
+                        <img src="./images/a.svg">
+                    </div>
+                    <div class="textMargin">
+                        班次：${TrainNo}
+                    </div>
+                </div>
 
 
+                <div class="box3-1-2">
+                    <div class="box3-1-3-1">
+                        <img src="./images/calendar.svg">
+                    </div>
+                    <div class="textMargin1">
+                        日期：${TrainDate}
+                    </div>
+                </div>
+
+                <div class="box3-1-2">
+                    <div class="box3-1-3-1">
+                        <img src="./images/clock2.svg">
+                    </div>
+                    <div class="textMargin1">
+                        發車時間：${starStationTime}
+                    </div>
+                </div>
+                <div class="box3-1-2">
+                    <div class="box3-1-3-1">
+                        <img src="./images/clock2.svg">
+                    </div>
+                    <div class="textMargin1">
+                        到站時間：${endStationTime}
+                    </div>
+                </div>
+
+                <div class="box3-1-2">
+                    <div class="box3-1-3-1">
+                        <img src="./images/placeholder.svg">
+                    </div>
+                    <div class="textMargin1">
+                        啟程站：${startZh_tw}
+                    </div>
+                </div>
+
+                <div class="box3-1-2">
+                    <div class="box3-1-3-1">
+                        <img src="./images/placeholder.svg">
+                    </div>
+                    <div class="textMargin1">
+                        到達站：${endZh_tw}
+                    </div>
+                </div>
+            </div>`
+
+            divdata = divdata + divStation 
+
+            })
+
+            box3.innerHTML = divdata
+
+        })
+        
+    })
+
+
+    
 
     search.addEventListener("click", function () {
         if (this.value === "Search...") {
@@ -182,7 +215,7 @@ window.addEventListener("load", function () {
     menuhome.addEventListener("click", function () {
         box3.style.display = "flex"
         box4.style.display = "none"
-        box232.style.background = "black";
+        box232.style.background = "#3957f2";
         box232.style.boxShadow = "1px 3px 5px 2px #edeefa";
         box232.style.borderRadius = "10px";
         box231.style.background = "0";
@@ -193,8 +226,8 @@ window.addEventListener("load", function () {
     menu.addEventListener("click", function () {
         box3.style.display = "none"
         box4.style.display = "flex"
-        box231.style.background = "black";
-        box231.style.boxShadow = "1px 3px 5px 2px #edeefa";
+        box231.style.background = "#3957f2";
+        box231.style.boxShadow = "1px 3px 5px 0px #edeefa";
         box231.style.borderRadius = "10px";
         box232.style.background = "0";
         box232.style.boxShadow = "0";
@@ -262,53 +295,65 @@ window.addEventListener("load", function () {
         const id0 = document.getElementById("id0")
         id0.addEventListener('click', function () {
             starStationName.innerText = id0.innerText
+            starStation.dataset.val = id0.dataset.val
 
             // dataset
-            console.log(id0.dataset.val);
+            console.log(id0.dataset.val, starStation.dataset.val);
         })
         const id1 = document.getElementById("id1")
         id1.addEventListener('click', function () {
             starStationName.innerText = id1.innerText
+            starStation.dataset.val = id1.dataset.val
         })
         const id2 = document.getElementById("id2")
         id2.addEventListener('click', function () {
             starStationName.innerText = id2.innerText
+            starStation.dataset.val = id2.dataset.val
         })
         const id3 = document.getElementById("id3")
         id3.addEventListener('click', function () {
             starStationName.innerText = id3.innerText
+            starStation.dataset.val = id3.dataset.val
         })
         const id4 = document.getElementById("id4")
         id4.addEventListener('click', function () {
             starStationName.innerText = id4.innerText
+            starStation.dataset.val = id4.dataset.val
         })
         const id5 = document.getElementById("id5")
         id5.addEventListener('click', function () {
             starStationName.innerText = id5.innerText
+            starStation.dataset.val = id5.dataset.val
         })
         const id6 = document.getElementById("id6")
         id6.addEventListener('click', function () {
             starStationName.innerText = id6.innerText
+            starStation.dataset.val = id6.dataset.val
         })
         const id7 = document.getElementById("id7")
         id7.addEventListener('click', function () {
             starStationName.innerText = id7.innerText
+            starStation.dataset.val = id7.dataset.val
         })
         const id8 = document.getElementById("id8")
         id8.addEventListener('click', function () {
             starStationName.innerText = id8.innerText
+            starStation.dataset.val = id8.dataset.val
         })
         const id9 = document.getElementById("id9")
         id9.addEventListener('click', function () {
             starStationName.innerText = id9.innerText
+            starStation.dataset.val = id9.dataset.val
         })
         const id10 = document.getElementById("id10")
         id10.addEventListener('click', function () {
             starStationName.innerText = id10.innerText
+            starStation.dataset.val = id10.dataset.val
         })
         const id11 = document.getElementById("id11")
         id11.addEventListener('click', function () {
             starStationName.innerText = id11.innerText
+            starStation.dataset.val = id11.dataset.val
         })
     })
 
@@ -320,51 +365,63 @@ window.addEventListener("load", function () {
         const id20 = document.getElementById("id20")
         id20.addEventListener('click', function () {
             endStationName.innerText = id20.innerText
+            endStation.dataset.val = id20.dataset.val
             console.log(id20.value)
         })
         const id21 = document.getElementById("id21")
         id21.addEventListener('click', function () {
             endStationName.innerText = id21.innerText
+            endStation.dataset.val = id21.dataset.val
         })
         const id22 = document.getElementById("id22")
         id22.addEventListener('click', function () {
             endStationName.innerText = id22.innerText
+            endStation.dataset.val = id22.dataset.val
         })
         const id23 = document.getElementById("id23")
         id23.addEventListener('click', function () {
             endStationName.innerText = id23.innerText
+            endStation.dataset.val = id23.dataset.val
         })
         const id24 = document.getElementById("id24")
         id24.addEventListener('click', function () {
             endStationName.innerText = id24.innerText
+            endStation.dataset.val = id24.dataset.val
         })
         const id25 = document.getElementById("id25")
         id25.addEventListener('click', function () {
             endStationName.innerText = id25.innerText
+            endStation.dataset.val = id25.dataset.val
         })
         const id26 = document.getElementById("id26")
         id26.addEventListener('click', function () {
             endStationName.innerText = id26.innerText
+            endStation.dataset.val = id26.dataset.val
         })
         const id27 = document.getElementById("id27")
         id27.addEventListener('click', function () {
             endStationName.innerText = id27.innerText
+            endStation.dataset.val = id27.dataset.val
         })
         const id28 = document.getElementById("id28")
         id28.addEventListener('click', function () {
             endStationName.innerText = id28.innerText
+            endStation.dataset.val = id28.dataset.val
         })
         const id29 = document.getElementById("id29")
         id29.addEventListener('click', function () {
             endStationName.innerText = id29.innerText
+            endStation.dataset.val = id29.dataset.val
         })
         const id30 = document.getElementById("id30")
         id30.addEventListener('click', function () {
             endStationName.innerText = id30.innerText
+            endStation.dataset.val = id30.dataset.val
         })
         const id31 = document.getElementById("id31")
         id31.addEventListener('click', function () {
             endStationName.innerText = id31.innerText
+            endStation.dataset.val = id31.dataset.val
         })
     })
 

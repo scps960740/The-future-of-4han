@@ -588,6 +588,13 @@ body {
     width: 100%;
 }
 
+.tdBorder{
+    border-bottom:1px solid #c2c5ee;
+    border-left:1px solid #c2c5ee;
+    border-radius: 20px 0px 0px 25px ;
+    box-shadow: 0px 5px 0px 0px #edeefa;
+}
+
 .th {
     color: #d0d4db;
     text-align: left;
@@ -603,4 +610,6 @@ body {
     height: 70px;
     font-size: 23px;
     letter-spacing: 1px;
+    border-bottom:1px solid #c2c5ee;
+    box-shadow: 0px 5px 0px 0px #edeefa;
 }
