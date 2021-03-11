@@ -1,36 +1,31 @@
-window.addEventListener("load", function () {
-    const search = document.getElementById("search")
-    const box3 = document.getElementById("box3")
-    const box4 = document.getElementById("box4")
-    // const selector = document.getElementById("selector")
-    const tri1 = document.getElementById("tri1")
-    const tri2 = document.getElementById("tri2")
-    const tri3 = document.getElementById("tri3")
-    const tri4 = document.getElementById("tri4")
-    const menuhome = document.getElementById("menuhome")
-    const menu = document.getElementById("menu")
-    const selectorItem = document.getElementById("selectorItem")
-    const selectorItem2 = document.getElementById("selectorItem2")
-    const selectorItem3 = document.getElementById("selectorItem3")
-    const selectorItem4 = document.getElementById("selectorItem4")
-    const selectorDate = document.getElementById("selectorDate")
-    const starStation = document.getElementById("starStation")
-    const endStation = document.getElementById("endStation")
-    const starStationSelector = document.getElementById("starStationSelector")
-    const endStationSelector = document.getElementById("endStationSelector")
-    const starStationName = document.getElementById("starStationName")
-    const endStationName = document.getElementById("endStationName")
-    const box231 = document.getElementById("box231")
-    const box232 = document.getElementById("box232")
-    const buttonStation = document.getElementById("buttonStation")
+import $ from 'jquery'
+import {
+    search,
+    box3,
+    box4,
+    tri3,
+    tri4,
+    menuhome,
+    menu,
+    selectorItem3,
+    selectorItem4,
+    selectorDate,
+    starStation,
+    endStation,
+    starStationSelector,
+    endStationSelector,
+    starStationName,
+    endStationName,
+    box231,
+    box232,
+    buttonStation,
+    ALL_STATION_API,
+    LAST_STATION_API
+} from './name'
 
-    const HOST_API = "https://ptx.transportdata.tw/MOTC"
-    const ALL_STATION_API = `${HOST_API}/v2/Rail/THSR/Station?$format=JSON`
-    const LAST_STATION_API = `${HOST_API}/v2/Rail/THSR/DailyTimetable/OD/start/to/end/date?$format=JSON`
+window.addEventListener("load", function () {
 
     let filterData = []
-
-
 
     function createStationOption(data) {
         let divHtml1 = ``
@@ -55,58 +50,58 @@ window.addEventListener("load", function () {
     }
 
 
-    const SATATION = [{
-        id: "0990",
-        name: "南港"
-    }, {
-        id: "1000",
-        name: "台北"
-    }, {
-        id: "1010",
-        name: "板橋"
-    }, {
-        id: "1020",
-        name: "桃園"
-    }, {
-        id: "1040",
-        name: "台中"
-    }, {
-        id: "1030",
-        name: "新竹"
-    }, {
-        id: "1035",
-        name: "苗栗"
-    }, {
-        id: "1043",
-        name: "彰化"
-    }, {
-        id: "3車站代碼",
-        name: "3"
-    }, {
-        id: "5車站代碼",
-        name: "5"
-    }, {
-        id: "11車站代碼",
-        name: "11"
-    }, {
-        id: "31車站代碼",
-        name: "31"
-    }]
+    // const SATATION = [{
+    //     id: "0990",
+    //     name: "南港"
+    // }, {
+    //     id: "1000",
+    //     name: "台北"
+    // }, {
+    //     id: "1010",
+    //     name: "板橋"
+    // }, {
+    //     id: "1020",
+    //     name: "桃園"
+    // }, {
+    //     id: "1040",
+    //     name: "台中"
+    // }, {
+    //     id: "1030",
+    //     name: "新竹"
+    // }, {
+    //     id: "1035",
+    //     name: "苗栗"
+    // }, {
+    //     id: "1043",
+    //     name: "彰化"
+    // }, {
+    //     id: "3車站代碼",
+    //     name: "3"
+    // }, {
+    //     id: "5車站代碼",
+    //     name: "5"
+    // }, {
+    //     id: "11車站代碼",
+    //     name: "11"
+    // }, {
+    //     id: "31車站代碼",
+    //     name: "31"
+    // }]
 
-    createStationOption(SATATION)
+    // createStationOption(SATATION)
 
 
-    // $.get(ALL_STATION_API, function (date) {
-    //     filterData = date.map(function (item) {
-    //         const stationID = item.StationID
-    //         const stationName = item.StationName.Zh_tw
-    //         return {
-    //             id: stationID,
-    //             name: stationName
-    //         }
-    //     })
-    //     createStationOption(filterData)
-    // })
+    $.get(ALL_STATION_API, function (date) {
+        filterData = date.map(function (item) {
+            const stationID = item.StationID
+            const stationName = item.StationName.Zh_tw
+            return {
+                id: stationID,
+                name: stationName
+            }
+        })
+        createStationOption(filterData)
+    })
 
     buttonStation.addEventListener("click", function () {
         let time = selectorDate.value
@@ -121,22 +116,39 @@ window.addEventListener("load", function () {
             window.alert("請輸入站別")
             return
         }
-        const composedSearchAPIURL = LAST_STATION_API.replace("start",start).replace("end",end).replace("date",time)
+        const composedSearchAPIURL = LAST_STATION_API.replace("start", start).replace("end", end).replace("date", time)
 
         console.log(composedSearchAPIURL)
 
         let divdata = ""
-        $.get(composedSearchAPIURL,function (data) {
+        $.get(composedSearchAPIURL, function (data) {
             data.map(function (item) {
-                const {TrainDate,DailyTrainInfo,OriginStopTime,DestinationStopTime} = item
-                const {TrainNo} = DailyTrainInfo
-                const {StationName : startStationName, DepartureTime : starStationTime} = OriginStopTime
-                const {Zh_tw : startZh_tw} = startStationName
-                const {StationName : endStationName ,ArrivalTime : endStationTime} = DestinationStopTime
-                const {Zh_tw : endZh_tw} = endStationName
+                const {
+                    TrainDate,
+                    DailyTrainInfo,
+                    OriginStopTime,
+                    DestinationStopTime
+                } = item
+                const {
+                    TrainNo
+                } = DailyTrainInfo
+                const {
+                    StationName: startStationName,
+                    DepartureTime: starStationTime
+                } = OriginStopTime
+                const {
+                    Zh_tw: startZh_tw
+                } = startStationName
+                const {
+                    StationName: endStationName,
+                    ArrivalTime: endStationTime
+                } = DestinationStopTime
+                const {
+                    Zh_tw: endZh_tw
+                } = endStationName
 
-                
-                
+
+
                 let divStation = `<div class="box3-1">
                 <div class="box3-1-1">
                     <div class="box3-1-1-1">
@@ -193,18 +205,18 @@ window.addEventListener("load", function () {
                 </div>
             </div>`
 
-            divdata = divdata + divStation 
+                divdata = divdata + divStation
 
             })
 
             box3.innerHTML = divdata
 
         })
-        
+
     })
 
 
-    
+
 
     search.addEventListener("click", function () {
         if (this.value === "Search...") {
