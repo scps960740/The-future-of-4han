@@ -75,7 +75,7 @@ window.addEventListener("load", function () {
     menuhome.addEventListener("click", function () {
         box3.style.display = "flex"
         box4.style.display = "none"
-        box232.style.background = "black";
+        box232.style.background = "#3957f2";
         box232.style.boxShadow = "1px 3px 5px 2px #edeefa";
         box232.style.borderRadius = "10px";
         box231.style.background = "0";
@@ -86,8 +86,8 @@ window.addEventListener("load", function () {
     menu.addEventListener("click", function () {
         box3.style.display = "none"
         box4.style.display = "flex"
-        box231.style.background = "black";
-        box231.style.boxShadow = "1px 3px 5px 2px #edeefa";
+        box231.style.background = "#3957f2";
+        box231.style.boxShadow = "1px 3px 5px 0px #edeefa";
         box231.style.borderRadius = "10px";
         box232.style.background = "0";
         box232.style.boxShadow = "0";
