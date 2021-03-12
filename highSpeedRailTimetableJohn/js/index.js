@@ -53,7 +53,7 @@ window.addEventListener("load", function () {
             endStationSelector.innerHTML = divHtml2
         })
     }
-
+    
 
     const SATATION = [{
         id: "0990",
