@@ -1,32 +1,33 @@
-window.addEventListener("load", function () {
-    const search = document.getElementById("search")
-    const box3 = document.getElementById("box3")
-    const box4 = document.getElementById("box4")
-    // const selector = document.getElementById("selector")
-    const tri1 = document.getElementById("tri1")
-    const tri2 = document.getElementById("tri2")
-    const tri3 = document.getElementById("tri3")
-    const tri4 = document.getElementById("tri4")
-    const menuhome = document.getElementById("menuhome")
-    const menu = document.getElementById("menu")
-    const selectorItem = document.getElementById("selectorItem")
-    const selectorItem2 = document.getElementById("selectorItem2")
-    const selectorItem3 = document.getElementById("selectorItem3")
-    const selectorItem4 = document.getElementById("selectorItem4")
-    const selectorDate = document.getElementById("selectorDate")
-    const starStation = document.getElementById("starStation")
-    const endStation = document.getElementById("endStation")
-    const starStationSelector = document.getElementById("starStationSelector")
-    const endStationSelector = document.getElementById("endStationSelector")
-    const starStationName = document.getElementById("starStationName")
-    const endStationName = document.getElementById("endStationName")
-    const box231 = document.getElementById("box231")
-    const box232 = document.getElementById("box232")
-    const buttonStation = document.getElementById("buttonStation")
+import $ from 'jquery'
+import {
+    search,
+    box3,
+    box4,
+    tri3,
+    tri4,
+    menuhome,
+    menu,
+    selectorItem3,
+    selectorItem4,
+    selectorDate,
+    starStation,
+    endStation,
+    starStationSelector,
+    endStationSelector,
+    starStationName,
+    endStationName,
+    box231,
+    box232,
+    buttonStation,
+    noTittle,
+    noTittle2,
+    longstrip,
+    HOST_API,
+    ALL_STATION_API,
+    LAST_STATION_API
+} from "./name"
 
-    const HOST_API = "https://ptx.transportdata.tw/MOTC"
-    const ALL_STATION_API = `${HOST_API}/v2/Rail/THSR/Station?$format=JSON`
-    const LAST_STATION_API = `${HOST_API}/v2/Rail/THSR/DailyTimetable/OD/start/to/end/date?$format=JSON`
+window.addEventListener("load", function () {
 
     let filterData = []
 
@@ -53,7 +54,8 @@ window.addEventListener("load", function () {
             endStationSelector.innerHTML = divHtml2
         })
     }
-    
+
+
 
     const SATATION = [{
         id: "0990",
@@ -121,22 +123,48 @@ window.addEventListener("load", function () {
             window.alert("請輸入站別")
             return
         }
-        const composedSearchAPIURL = LAST_STATION_API.replace("start",start).replace("end",end).replace("date",time)
+        const composedSearchAPIURL = LAST_STATION_API.replace("start", start).replace("end", end).replace("date", time)
 
         console.log(composedSearchAPIURL)
 
-        let divdata = ""
-        $.get(composedSearchAPIURL,function (data) {
-            data.map(function (item) {
-                const {TrainDate,DailyTrainInfo,OriginStopTime,DestinationStopTime} = item
-                const {TrainNo} = DailyTrainInfo
-                const {StationName : startStationName, DepartureTime : starStationTime} = OriginStopTime
-                const {Zh_tw : startZh_tw} = startStationName
-                const {StationName : endStationName ,ArrivalTime : endStationTime} = DestinationStopTime
-                const {Zh_tw : endZh_tw} = endStationName
+        noTittle.style.display = "none"
+        noTittle2.style.display = "none"
 
-                
-                
+        let divdata = ""
+        let longstripText = `<div class="longstrip-1">班次</div>
+            <div class="longstrip-1">日期</div>
+            <div class="longstrip-1">發車時間</div>
+            <div class="longstrip-1">到站時間</div>
+            <div class="longstrip-1">起程站</div>
+            <div class="longstrip-1">到達站</div>`
+        $.get(composedSearchAPIURL, function (data) {
+            data.map(function (item) {
+                const {
+                    TrainDate,
+                    DailyTrainInfo,
+                    OriginStopTime,
+                    DestinationStopTime
+                } = item
+                const {
+                    TrainNo
+                } = DailyTrainInfo
+                const {
+                    StationName: startStationName,
+                    DepartureTime: starStationTime
+                } = OriginStopTime
+                const {
+                    Zh_tw: startZh_tw
+                } = startStationName
+                const {
+                    StationName: endStationName,
+                    ArrivalTime: endStationTime
+                } = DestinationStopTime
+                const {
+                    Zh_tw: endZh_tw
+                } = endStationName
+
+
+
                 let divStation = `<div class="box3-1">
                 <div class="box3-1-1">
                     <div class="box3-1-1-1">
@@ -193,18 +221,31 @@ window.addEventListener("load", function () {
                 </div>
             </div>`
 
-            divdata = divdata + divStation 
+                divdata = divdata + divStation
+
+
+
+                let longstripTextAPI = `<div class="longstrip-2">${TrainNo}</div>
+            <div class="longstrip-2">${TrainDate}</div>
+            <div class="longstrip-2">${starStationTime}</div>
+            <div class="longstrip-2">${endStationTime}</div>
+            <div class="longstrip-2">${startZh_tw}</div>
+            <div class="longstrip-2">${endZh_tw}</div>`
+
+
+                longstripText += longstripTextAPI
 
             })
 
             box3.innerHTML = divdata
+            longstrip.innerHTML = longstripText
 
         })
-        
+
     })
 
 
-    
+
 
     search.addEventListener("click", function () {
         if (this.value === "Search...") {
