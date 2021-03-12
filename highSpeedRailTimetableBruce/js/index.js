@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import ll from 'lodash'
 import {
     search,
     box3,
@@ -19,13 +20,21 @@ import {
     box231,
     box232,
     buttonStation,
+    noTittle,
+    noTittle2,
+    longstrip,
+    HOST_API,
     ALL_STATION_API,
     LAST_STATION_API
-} from './name'
+} from "./name"
 
 window.addEventListener("load", function () {
 
     let filterData = []
+
+    let newSearchData = []
+
+    function test() {}
 
     function createStationOption(data) {
         let divHtml1 = ``
@@ -50,58 +59,58 @@ window.addEventListener("load", function () {
     }
 
 
-    // const SATATION = [{
-    //     id: "0990",
-    //     name: "南港"
-    // }, {
-    //     id: "1000",
-    //     name: "台北"
-    // }, {
-    //     id: "1010",
-    //     name: "板橋"
-    // }, {
-    //     id: "1020",
-    //     name: "桃園"
-    // }, {
-    //     id: "1040",
-    //     name: "台中"
-    // }, {
-    //     id: "1030",
-    //     name: "新竹"
-    // }, {
-    //     id: "1035",
-    //     name: "苗栗"
-    // }, {
-    //     id: "1043",
-    //     name: "彰化"
-    // }, {
-    //     id: "3車站代碼",
-    //     name: "3"
-    // }, {
-    //     id: "5車站代碼",
-    //     name: "5"
-    // }, {
-    //     id: "11車站代碼",
-    //     name: "11"
-    // }, {
-    //     id: "31車站代碼",
-    //     name: "31"
-    // }]
+    const SATATION = [{
+        id: "0990",
+        name: "南港"
+    }, {
+        id: "1000",
+        name: "台北"
+    }, {
+        id: "1010",
+        name: "板橋"
+    }, {
+        id: "1020",
+        name: "桃園"
+    }, {
+        id: "1040",
+        name: "台中"
+    }, {
+        id: "1030",
+        name: "新竹"
+    }, {
+        id: "1035",
+        name: "苗栗"
+    }, {
+        id: "1043",
+        name: "彰化"
+    }, {
+        id: "3車站代碼",
+        name: "3"
+    }, {
+        id: "5車站代碼",
+        name: "5"
+    }, {
+        id: "11車站代碼",
+        name: "11"
+    }, {
+        id: "31車站代碼",
+        name: "31"
+    }]
 
-    // createStationOption(SATATION)
+    createStationOption(SATATION)
 
 
-    $.get(ALL_STATION_API, function (date) {
-        filterData = date.map(function (item) {
-            const stationID = item.StationID
-            const stationName = item.StationName.Zh_tw
-            return {
-                id: stationID,
-                name: stationName
-            }
-        })
-        createStationOption(filterData)
-    })
+    // $.get(ALL_STATION_API, function (date) {
+    //     filterData = date.map(function (item) {
+    //         const stationID = item.StationID
+    //         const stationName = item.StationName.Zh_tw
+    //         return {
+    //             id: stationID,
+    //             name: stationName
+    //         }
+    //     })
+    //     createStationOption(filterData)
+    // })
 
     buttonStation.addEventListener("click", function () {
         let time = selectorDate.value
@@ -120,9 +129,29 @@ window.addEventListener("load", function () {
 
         console.log(composedSearchAPIURL)
 
+        noTittle.style.display = "none"
+        noTittle2.style.display = "none"
+
         let divdata = ""
+        let longstripText = `<div class="longstrip-1">班次</div>
+            <div class="longstrip-1">日期</div>
+            <div class="longstrip-1">發車時間</div>
+            <div class="longstrip-1">到站時間</div>
+            <div class="longstrip-1">起程站</div>
+            <div class="longstrip-1">到達站</div>`
+
+
         $.get(composedSearchAPIURL, function (data) {
-            data.map(function (item) {
+
+            // [1, 2, 3, 4, ..... 20] data
+            // [[1 .... 10], [11 ..... 20]] newData
+
+            newSearchData = ll.chunk(data, 10)
+
+            console.log(newSearchData);
+
+            newSearchData[0].map(function (item, index) {
+                // index 0 1 2 3 
                 const {
                     TrainDate,
                     DailyTrainInfo,
@@ -146,7 +175,6 @@ window.addEventListener("load", function () {
                 const {
                     Zh_tw: endZh_tw
                 } = endStationName
-
 
 
                 let divStation = `<div class="box3-1">
@@ -207,9 +235,24 @@ window.addEventListener("load", function () {
 
                 divdata = divdata + divStation
 
+
+
+                let longstripTextAPI = `<div class="longstrip-3">
+                <div class="longstrip-2">${TrainNo}</div>
+                <div class="longstrip-2">${TrainDate}</div>
+                <div class="longstrip-2">${starStationTime}</div>
+                <div class="longstrip-2">${endStationTime}</div>
+                <div class="longstrip-2">${startZh_tw}</div>
+                <div class="longstrip-2">${endZh_tw}</div>
+                </div>`
+
+
+                longstripText += longstripTextAPI
+
             })
 
             box3.innerHTML = divdata
+            longstrip.innerHTML = longstripText
 
         })
 
