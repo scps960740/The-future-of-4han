@@ -1,9 +1,13 @@
+## Webpack筆記
+```
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
+
+  // 基本的地方
   // development production
   mode: "development",
   entry: './js/index.js',
@@ -42,3 +46,19 @@ module.exports = {
     }),
   ]
 };
+```
+
+## 閉包
+
+```
+    // 閉包 closure
+    // function createDownAnime() {
+    //     return function () { console.log("我是誰") }
+    // }
+    
+    // let a = createDownAnime() //10
+    // a()
+    // selector.addEventListener("click", function () {
+    //     downAinme(selectorItem, tri1)
+    // })
+```
