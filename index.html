@@ -7,15 +7,53 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        p {
+            color: rgb(255, 255, 255);
+            font-size: 64px;
+        }
+
+        .card {
+            background: #424242;
+            -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+            -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+            -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+            -o-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+            padding: 20px;
+            width: 100%;
+            position: relative;
+        }
+        .qrcode {
+            width: 450px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .qrcode img {
+            width: 100%;
+        }
+
+        .qrcode p {
+            font-size: 40px;
+        }
+    </style>
 </head>
 
 <body>
-
-    <div id="app">
+    <div class="card">
+        <p>今日主題</p>
+        <p>1. Side project經驗分享</p>
+        <p style="color: rgb(114, 179, 233);">2. 前端職涯規劃</p>
+        <p>3. 為何走前端不走後端？興趣嗎？薪水差距？</p>
+        <p>4. 提升工作，技術效率的小工具分享</p>
+        <p>5. 前端技能樹點法（除了SPA框架以外工具/Library</p>
+        <div class="qrcode">
+            <img src="./fb.png" alt="">
+            <p>這是FB粉專的連結 求按讚QQ</p>
+        </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./09/index.js"></script>
 </body>
 
 </html>

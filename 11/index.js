@@ -4,26 +4,53 @@
 // 4. 用箭頭函式可以讓this綁定好，讓他忠誠。
 // 5. JS的class只是語法糖。
 // 6. 內容有this的funtion叫做「構造function」。 (constructor function)
+// 7. 物件導向 OOP
+// 8. 用extend繼承父層的東西，super就是代表繼承的父層(Car)
+// 9. 有兩種屬性：public公開、private私有（用#開頭）
 
 class Car {
-  name = ""
+  #name = ""
 
-  constructor(carName) {
-    this.name = carName
+  constructor(carName, v) {
+    this.#name = carName
   }
 
   start() {
-    console.log('開跑囉：', this.name)
+    console.log('開跑囉：', this.#name)
   }
 
+  // 綁定this到Car身上
   // start = () => {
   //   console.log('開跑囉：', this.name)
   // }
 
   stop() {
-    console.log('踩煞車', this.name)
+    console.log('踩煞車', this.#name)
   }
 }
+
+class Porshe extends Car{
+  constructor(porsheName) {
+    super(porsheName)
+  }
+  sound() {
+    console.log('跑車聲浪....')
+  }
+
+  start() {
+    // TODO del
+    console.log('跑車聲浪開跑！！')
+    // 舊的 父層的start
+    super.start()
+  }
+}
+
+const p1 = new Porshe("我的保時捷")
+// TODO del
+console.log('p1.name', p1.#name)
+
+
+
 
 // function Car(carName) {
 //   this.name = carName
@@ -50,10 +77,10 @@ class Car {
 // }
 
 // class
-// 構造函數
-function Car(carName) {
-  this.name = carName
-}
+// // 構造函數
+// function Car(carName) {
+//   this.name = carName
+// }
 
 // 只要內容有this，都不能簡寫
 // const Car = () => {
@@ -61,23 +88,23 @@ function Car(carName) {
 // }
 
 // new 建立
-const c1 = new Car("保時捷") 
-// TODO del
-console.log('c1.name', c1.name)
+// const c1 = new Car("保時捷") 
+// // TODO del
+// console.log('c1.name', c1.name)
 
 // aa.start = c1.start
 // // console.log('aa', aa)
 // aa.start()
 // console.log('c1', c1)
 
-const c2 = new Car("BMW")
-// console.log('c2', c2)
+// const c2 = new Car("BMW")
+// // console.log('c2', c2)
 
-const c3 = new Car("TOYOTA")
-// console.log('c3', c3)
+// const c3 = new Car("TOYOTA")
+// // console.log('c3', c3)
 
-const c4 = new Car("TESLA")
-// console.log('c4', c4)
+// const c4 = new Car("TESLA")
+// // console.log('c4', c4)
 
 
 // const car = {

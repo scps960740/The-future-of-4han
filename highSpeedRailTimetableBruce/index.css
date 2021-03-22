@@ -387,7 +387,7 @@ body {
 .box3 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     box-sizing: border-box;
     width: 100%;
     padding-left: 7%;
