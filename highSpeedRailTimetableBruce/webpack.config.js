@@ -2,11 +2,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const webpack = require('webpack');
+
+const name = './js/index.js'
 
 module.exports = {
   // development production
   mode: "development",
-  entry: './js/index.js',
+  entry: name,
   output: {
     filename: 'main_bundle.[hash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -40,5 +43,9 @@ module.exports = {
         { from: "./index.css", to: "index.css" },
       ],
     }),
+    new webpack.SourceMapDevToolPlugin({
+      filename: '[name].js.map',
+      exclude: ['vendor.js'],
+    })
   ]
 };
