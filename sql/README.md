@@ -71,3 +71,30 @@ DELETE FROM users WHERE username = 'ooxx0204';
 // 嚴重注意加條件，不然被資遣
 DELETE FROM users;
 ```
+
+### 題目
+1. 建出一個FB動態牆資料表，包含id，title，desc，like_count，comment_count，key是id，id要自動新增，起始值是10
+2. 新增10筆資料到裡面（先寫一筆就好）指定欄位title，desc，like_count，comment_count，讓id自動新增。
+```
+id，title，desc，like_count，comment_count
+01 貼文一 貼文內容1        100    100
+02 貼文二 貼文內容2        200    30
+03 貼文三 貼文內容3        150    50
+04 貼文四 貼文內容4        170    1110
+05 貼文五 貼文內容5        10     19
+06 貼文六 貼文內容6        0      38
+07 貼文七 貼文內容7        1000   1
+08 貼文八 貼文內容8        300    0
+09 我不是貼文九 貼文內容9   500    2
+10 我不是貼文十 貼文內容10  1      10
+```
+
+3. 搜尋全部資料
+3. 搜尋前10筆資料
+4. 搜尋like_count大於100的資料
+5. 搜尋like_count大於100且comment_count小於10的資料
+6. 搜尋全部資料然後用like_count由大到小排序
+7. 搜尋title是「貼文」開頭的所有資料
+8. 搜尋like_count範圍在0~400的資料
+9. 更新id等於10的資料，把title改掉就好。
+10. 刪除id等於5的資料
